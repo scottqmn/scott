@@ -3,9 +3,7 @@
 import Router from 'next/router'
 import Head from 'next/head'
 import 'normalize.css'
-import '../styles/reset.css'
-import '../styles/globals.css'
-import '../styles/typography.scss'
+import '../styles/main.scss'
 import * as gtag from '../utils/gtag'
 import metadata from '../constants/metadata'
 

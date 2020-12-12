@@ -1,6 +1,13 @@
+@import './reset.scss';
+@import './containers.scss';
+@import './typography.scss';
+@import './images.scss';
+
 :root {
   --primary: #000000;
   --background: #ffffff;
+  --black: #000000;
+  --white: #ffffff;
   --sans-serif: 'Lato', Helvetica Neue, Arial, sans-serif;
   --serif: 'Noto Serif', Times New Roman, serif;
 }
@@ -22,17 +29,4 @@ body {
 
 *:focus:not(:focus-visible) {
   outline: none;
-}
-
-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  fill: currentColor;
 }

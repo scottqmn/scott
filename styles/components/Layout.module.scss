@@ -1,31 +1,32 @@
-.container {
+.grid {
   min-height: 100vh;
-  padding: 20px;
   display: grid;
-  grid-template-areas:
-    'a a'
-    'b c';
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: auto 1fr;
-  grid-gap: 20px;
-
-  &.closed {
-    grid-template-columns: 0fr 4fr;
-  }
+  grid-template-rows: min-content 1fr min-content;
 }
 
 .header {
-  grid-area: a;
-
-  &.asdf {
-    color: pink;
-  }
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 69px;
+  border-bottom: 1px solid var(--black);
+  background-color: var(--white);
+  z-index: 10;
 }
 
 .aside {
-  grid-area: b;
+  position: absolute;
+  display: none;
 }
 
 .main {
-  grid-area: c;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.footer {
+  height: 69px;
+  border-top: 1px solid var(--black);
+  background-color: var(--white);
+  z-index: 10;
 }
