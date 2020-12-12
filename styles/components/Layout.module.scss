@@ -1,4 +1,31 @@
 .container {
   min-height: 100vh;
   padding: 20px;
+  display: grid;
+  grid-template-areas:
+    'a a'
+    'b c';
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: auto 1fr;
+  grid-gap: 20px;
+
+  &.closed {
+    grid-template-columns: 0fr 4fr;
+  }
+}
+
+.header {
+  grid-area: a;
+
+  &.asdf {
+    color: pink;
+  }
+}
+
+.aside {
+  grid-area: b;
+}
+
+.main {
+  grid-area: c;
 }

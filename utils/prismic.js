@@ -1,6 +1,6 @@
 import Prismic from 'prismic-javascript'
 
-export const apiEndpoint = 'https://...'
+export const apiEndpoint = 'https://scott.cdn.prismic.io/api/v2'
 export const accessToken = process.env.PRISMIC_ACCESS_TOKEN
 
 const createClientOptions = (req = null, prismicAccessToken = null) => {
@@ -16,6 +16,8 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
 // Client method to query documents from the Prismic repo
 export const Client = (req = null) =>
   Prismic.client(apiEndpoint, createClientOptions(req, accessToken))
+
+export const { Predicates } = Prismic
 
 export const linkResolver = (doc) => {
   // URL for 'page' posts
