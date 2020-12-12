@@ -2,31 +2,34 @@
 @import './containers.scss';
 @import './typography.scss';
 @import './images.scss';
+@import './glass.scss';
 
 :root {
-  --primary: #000000;
-  --background: #ffffff;
-  --black: #000000;
-  --white: #ffffff;
-  --sans-serif: 'Lato', Helvetica Neue, Arial, sans-serif;
-  --serif: 'Noto Serif', Times New Roman, serif;
+    --primary: #000000;
+    --background: #ffffff;
+    --black: #000000;
+    --white: #ffffff;
+    --blue: #3056e7;
+
+    --open-sans: 'Open Sans', Helvetica Neue, Arial, sans-serif;
+    --work-sans: 'Work Sans', Helvetica Neue, Arial, sans-serif;
 }
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: var(--sans-serif);
-  color: var(--primary);
-  background: var(--background);
+    padding: 0;
+    margin: 0;
+    font-family: var(--open-sans);
+    color: var(--primary);
+    background: var(--background);
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *:focus:not(:focus-visible) {
-  outline: none;
+    outline: none;
 }

@@ -1,32 +1,38 @@
 .grid {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    background: linear-gradient(
+        135deg,
+        rgb(41, 46, 73),
+        rgb(83, 105, 118),
+        rgb(187, 210, 197)
+    );
 }
 
 .header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  height: 69px;
-  border-bottom: 1px solid var(--black);
-  background-color: var(--white);
-  z-index: 10;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 69px;
+    border-bottom: 1px solid var(--black);
+    background-color: var(--white);
+    z-index: 10;
 }
 
 .aside {
-  position: absolute;
-  display: none;
+    position: absolute;
+    display: none;
 }
 
 .main {
-  padding-bottom: 30px;
-  padding-top: 30px;
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 .footer {
-  height: 69px;
-  border-top: 1px solid var(--black);
-  background-color: var(--white);
-  z-index: 10;
+    height: 69px;
+    border-top: 1px solid var(--black);
+    background-color: var(--white);
+    z-index: 10;
 }

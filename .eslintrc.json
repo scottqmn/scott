@@ -1,50 +1,53 @@
 {
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "sourceType": "module",
-    "allowImportExportEverywhere": false,
-    "codeFrame": true
-  },
-  "plugins": ["react", "react-hooks", "jest"],
-  "extends": [
-    "eslint:recommended",
-    "airbnb",
-    "airbnb/hooks",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:jsx-a11y/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jest/recommended",
-    "prettier",
-    "prettier/react"
-  ],
-  "rules": {
-    "strict": 0,
-    "camelcase": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never"
-      }
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": false,
+        "codeFrame": true
+    },
+    "plugins": ["react", "react-hooks", "jest"],
+    "extends": [
+        "eslint:recommended",
+        "airbnb",
+        "airbnb/hooks",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:jsx-a11y/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:jest/recommended",
+        "prettier",
+        "prettier/react"
     ],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "react/jsx-props-no-spreading": 0,
-    "react/react-in-jsx-scope": "off",
-    "react/require-default-props": 0,
-    "react/forbid-prop-types": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
-  },
-  "globals": {
-    "React": "writable"
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx"]
-      }
+    "rules": {
+        "strict": 0,
+        "camelcase": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never"
+            }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            { "devDependencies": true }
+        ],
+        "react/jsx-props-no-spreading": 0,
+        "react/react-in-jsx-scope": "off",
+        "react/require-default-props": 0,
+        "react/forbid-prop-types": 0,
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    },
+    "globals": {
+        "React": "writable"
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx"]
+            }
+        }
     }
-  }
 }
