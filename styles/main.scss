@@ -2,24 +2,28 @@
 @import './containers.scss';
 @import './typography.scss';
 @import './images.scss';
-@import './glass.scss';
 
 :root {
     --primary: #000000;
-    --background: #ffffff;
+    --secondary: #000000;
+
+    --titleColor: #37474f;
+    --textColor: #222222;
+    --buttonColor: #eb427d;
+
     --black: #000000;
     --white: #ffffff;
-    --blue: #3056e7;
+    --grey: #dee4e7;
 
-    --open-sans: 'Open Sans', Helvetica Neue, Arial, sans-serif;
-    --work-sans: 'Work Sans', Helvetica Neue, Arial, sans-serif;
+    --serif: 'Playfair Display', serif;
+    --sans-serif: 'Poppins', sans-serif;
 }
 
 html,
 body {
     padding: 0;
     margin: 0;
-    font-family: var(--open-sans);
+    font-family: var(--sans-serif);
     color: var(--primary);
     background: var(--background);
 }

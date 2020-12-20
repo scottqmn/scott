@@ -4,6 +4,8 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 30px 15px;
+    padding: 30px;
+    border-radius: 6px;
 
     @media (min-width: $sm) {
         grid-template-columns: repeat(2, 1fr);
@@ -20,6 +22,7 @@
     border-radius: 5px;
     box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
     color: var(--blue);
+    background-color: var(--white);
 }
 
 .thumbnail {

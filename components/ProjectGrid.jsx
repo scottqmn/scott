@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import clsx from 'clsx'
+import numeral from 'numeral'
 import Button from './Button'
 import styles from '../styles/components/ProjectGrid.module.scss'
 
@@ -42,10 +43,10 @@ const ProjectGrid = () => {
                 <div className={styles.grid}>
                     {projects.map(({ title, subtitle, imgUrl, price }, i) => {
                         return (
-                            // eslint-disable-next-line react/no-array-index-key
                             <div
+                                // eslint-disable-next-line react/no-array-index-key
                                 key={i}
-                                className={clsx(styles.project, 'glass')}
+                                className={styles.project}
                             >
                                 <div className={styles.thumbnail}>
                                     <img
@@ -58,7 +59,7 @@ const ProjectGrid = () => {
                                     {title}
                                 </div>
                                 <div className={clsx(styles.price, 't-h6')}>
-                                    {price}
+                                    {numeral(price).format('$0')}
                                 </div>
                                 <div
                                     className={clsx(

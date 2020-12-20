@@ -1,7 +1,7 @@
 // import PropTypes from 'prop-types'
 import Layout from '../../components/Layout'
 import ProjectGrid from '../../components/ProjectGrid'
-import styles from '../../styles/pages/project-detail.scss'
+// import styles from '../../styles/pages/project-detail.module.scss'
 
 const Projects = () => {
     return (

@@ -1,53 +1,60 @@
 /* Typography */
+%heading {
+    font-family: var(--serif);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+}
+
 %h1 {
-    font-size: 40px;
-    font-family: var(--work-sans);
-    font-weight: 700;
+    @extend %heading;
+    font-size: 55px;
 }
 
 %h2 {
-    font-size: 30px;
-    font-family: var(--work-sans);
-    font-weight: 700;
+    @extend %heading;
+    font-size: 44px;
 }
 
 %h3 {
-    font-size: 24px;
-    font-family: var(--work-sans);
-    font-weight: 700;
+    @extend %heading;
+    font-size: 36px;
 }
 
 %h4 {
-    font-size: 20px;
-    font-family: var(--work-sans);
-    font-weight: 700;
+    @extend %heading;
+    font-size: 28px;
 }
 
 %h5 {
-    font-size: 16px;
-    font-family: var(--work-sans);
-    font-weight: 700;
+    @extend %heading;
+    font-size: 21px;
 }
 
 %h6 {
-    font-size: 14px;
-    font-family: var(--work-sans);
-    font-weight: 700;
+    @extend %heading;
+    font-size: 13px;
+}
+
+%caption {
+    font-size: 28px;
+    font-family: var(--sans-serif);
+    font-weight: 300;
+    letter-spacing: 0.01em;
 }
 
 %body {
-    font-size: 20px;
+    font-size: 21px;
     font-family: var(--sans-serif);
+    font-weight: 500;
+    letter-spacing: 0.04em;
 }
 
-%body-small {
-    font-size: 14px;
+%label {
+    font-size: 13px;
     font-family: var(--sans-serif);
-}
-
-%subtitle {
-    font-size: 16px;
-    font-family: var(--sans-serif);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
 .t-h1 {
@@ -71,11 +78,11 @@
 .t-body {
     @extend %body;
 }
-.t-body-small {
-    @extend %body-small;
+.t-caption {
+    @extend %caption;
 }
-.t-subtitle {
-    @extend %subtitle;
+.t-label {
+    @extend %label;
 }
 
 // Rich text
@@ -120,7 +127,6 @@
 // Forms
 input,
 select,
-textarea,
-button {
+textarea {
     @extend %body;
 }

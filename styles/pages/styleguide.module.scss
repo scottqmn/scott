@@ -1,0 +1,30 @@
+.inner {
+    margin-top: -20px;
+}
+
+.section {
+    padding: 20px 0;
+    border-radius: 6px;
+    margin-top: 20px;
+    text-align: center;
+    background-image: linear-gradient(
+        to right,
+        var(--white) 50%,
+        var(--grey) 50%
+    );
+    p {
+        margin-bottom: 1em;
+    }
+
+    span {
+        display: inline-block;
+        margin: 0 10px;
+
+        &:first-child {
+            color: var(--titleColor);
+        }
+        &:last-child {
+            color: var(--textColor);
+        }
+    }
+}

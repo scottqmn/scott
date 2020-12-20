@@ -9,7 +9,10 @@ const Button = ({
     ...props
 }) => {
     return (
-        <Component className={clsx(styles.wrap, className)} {...props}>
+        <Component
+            className={clsx(styles.wrap, 't-caption', className)}
+            {...props}
+        >
             {children}
         </Component>
     )

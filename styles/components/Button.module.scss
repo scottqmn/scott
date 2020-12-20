@@ -1,17 +1,10 @@
 .wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: max-content;
-  text-align: center;
-  padding: 10px;
-  border-radius: 6px;
-
-  color: rgba(0, 0, 0, 0.56);
-  border: 2px solid currentColor;
-  transition: border-color 0.2s;
-
-  &:hover {
-    color: var(--black);
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
 }
