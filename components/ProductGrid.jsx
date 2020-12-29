@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
-import { Button, Select } from './Inputs'
+import { Button, Select, Checkbox } from './Inputs'
 import ProductItem from './ProductItem'
 import styles from '../styles/components/ProductGrid.module.scss'
 
@@ -41,6 +41,7 @@ const ProductGrid = ({ projects, showMore }) => {
     return (
         <div className='outer'>
             <div className={clsx(styles.inner, 'inner')}>
+                <Checkbox id='whatever'>Checkbox</Checkbox>
                 <div className={styles.options}>
                     <Button as='button' className={''}>
                         Filter

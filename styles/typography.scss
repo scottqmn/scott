@@ -133,7 +133,8 @@ textarea {
 }
 
 button,
-select {
+select,
+label {
     @extend %label;
     font-weight: 500;
 }
