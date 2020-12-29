@@ -1,23 +1,8 @@
 @import './reset.scss';
+@import './colors.scss';
 @import './containers.scss';
 @import './typography.scss';
 @import './images.scss';
-
-:root {
-    --primary: #000000;
-    --secondary: #000000;
-
-    --titleColor: #37474f;
-    --textColor: #222222;
-    --buttonColor: #eb427d;
-
-    --black: #000000;
-    --white: #ffffff;
-    --grey: #dee4e7;
-
-    --serif: 'Playfair Display', serif;
-    --sans-serif: 'Poppins', sans-serif;
-}
 
 html,
 body {

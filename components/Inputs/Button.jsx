@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
-import styles from '../styles/components/Button.module.scss'
+import styles from '../../styles/components/Button.module.scss'
 
 const Button = ({
     children,
@@ -9,10 +9,7 @@ const Button = ({
     ...props
 }) => {
     return (
-        <Component
-            className={clsx(styles.wrap, 't-caption', className)}
-            {...props}
-        >
+        <Component className={clsx(styles.wrap, className)} {...props}>
             {children}
         </Component>
     )

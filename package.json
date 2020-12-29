@@ -12,6 +12,7 @@
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
+    "moment": "^2.29.1",
     "next": "^10.0.3",
     "normalize.css": "^8.0.1",
     "numeral": "^2.0.6",

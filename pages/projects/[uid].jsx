@@ -1,12 +1,12 @@
 // import PropTypes from 'prop-types'
 import Layout from '../../components/Layout'
-import ProjectGrid from '../../components/ProjectGrid'
+import ProductGrid from '../../components/ProductGrid'
 // import styles from '../../styles/pages/project-detail.module.scss'
 
 const Projects = () => {
     return (
         <Layout>
-            <ProjectGrid />
+            <ProductGrid />
         </Layout>
     )
 }

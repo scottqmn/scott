@@ -1,3 +1,8 @@
+:root {
+    --serif: 'Playfair Display', serif;
+    --sans-serif: 'Poppins', sans-serif;
+}
+
 /* Typography */
 %heading {
     font-family: var(--serif);
@@ -43,18 +48,15 @@
 }
 
 %body {
-    font-size: 21px;
+    font-size: 18px;
     font-family: var(--sans-serif);
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-weight: 300;
 }
 
 %label {
-    font-size: 13px;
+    font-size: 14px;
     font-family: var(--sans-serif);
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    font-weight: 300;
 }
 
 .t-h1 {
@@ -126,7 +128,12 @@
 
 // Forms
 input,
-select,
 textarea {
     @extend %body;
+}
+
+button,
+select {
+    @extend %label;
+    font-weight: 500;
 }
