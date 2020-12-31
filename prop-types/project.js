@@ -17,7 +17,12 @@ export default {
         images: PropTypes.arrayOf(
             PropTypes.shape({ image: prismicImagePropType })
         ),
-        tags: PropTypes.arrayOf(tagPropType),
+        tags: PropTypes.arrayOf(
+            PropTypes.shape({
+                secondary: PropTypes.bool,
+                tag: PropTypes.shape(tagPropType),
+            })
+        ),
         // Store
         price: PropTypes.number,
         status: PropTypes.any,

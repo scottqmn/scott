@@ -14,27 +14,31 @@ const SELECT_ID = 'sort-by-select'
 const SORT_OPTIONS = {
     'date-latest': {
         label: 'Date (Latest)',
-        sort: (a, b) => new Date(b?.date) - new Date(a?.date),
+        sort: (a, b) =>
+            new Date(b?.data?.end_date || b?.data?.start_date) -
+            new Date(a?.data?.end_date || a?.data?.start_date),
     },
     'date-oldest': {
         label: 'Date (Oldest)',
-        sort: (a, b) => new Date(a?.date) - new Date(b?.date),
+        sort: (a, b) =>
+            new Date(a?.data?.end_date || a?.data?.start_date) -
+            new Date(b?.data?.end_date || b?.data?.start_date),
     },
     'alpha-inc': {
         label: 'Name (A-Z)',
-        sort: (a, b) => a?.title - b?.title,
+        sort: (a, b) => a?.data?.name.localeCompare(b?.data?.name),
     },
     'alpha-dec': {
         label: 'Name (Z-A)',
-        sort: (a, b) => b?.title - a?.title,
+        sort: (a, b) => b?.data?.name.localeCompare(a?.data?.name),
     },
     'price-inc': {
         label: 'Price ($-$$)',
-        sort: (a, b) => a?.price - b?.price,
+        sort: (a, b) => a?.data?.price - b?.data?.price,
     },
     'price-dec': {
         label: 'Price ($$-$)',
-        sort: (a, b) => b?.price - a?.price,
+        sort: (a, b) => b?.data?.price - a?.data?.price,
     },
 }
 
@@ -69,13 +73,11 @@ const ProductGrid = ({ projects, tags }) => {
                             onChange={(e) => setSort(e.target.value)}
                         >
                             {Object.entries(SORT_OPTIONS).map(
-                                ([key, { label }]) => {
-                                    return (
-                                        <option key={key} value={key}>
-                                            {label}
-                                        </option>
-                                    )
-                                }
+                                ([key, { label }]) => (
+                                    <option key={key} value={key}>
+                                        {label}
+                                    </option>
+                                )
                             )}
                         </Select>
                     </div>
@@ -89,9 +91,9 @@ const ProductGrid = ({ projects, tags }) => {
                 )}
                 <div className={styles.grid}>
                     {[...projects]
-                        // .sort(SORT_OPTIONS[sort]?.sort)
+                        .sort(SORT_OPTIONS[sort]?.sort)
                         .map(({ uid, data }) => (
-                            <ProductItem key={uid} data={data} />
+                            <ProductItem key={uid} uid={uid} data={data} />
                         ))}
                 </div>
             </div>

@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import PropTypes from 'prop-types'
+import clsx from 'clsx'
 import FocusTrap from 'focus-trap-react'
 import { Button } from './Inputs'
 import styles from '../styles/components/Modal.module.scss'
-import clsx from 'clsx'
 
 const Modal = ({ children, close, title }) => {
     const handleKeydown = (e) => {
@@ -14,21 +14,24 @@ const Modal = ({ children, close, title }) => {
             default:
         }
     }
+
     useEffect(() => {
         window.addEventListener('keydown', handleKeydown)
         return () => {
             window.removeEventListener('keydown', handleKeydown)
         }
     })
+
     return (
-        <div className={styles.outer}>
-            <button
-                className={styles.background}
-                type='button'
-                aria-label='Close modal'
-                onClick={close}
-            />
-            <FocusTrap>
+        <FocusTrap>
+            <div className={styles.outer}>
+                <button
+                    className={styles.background}
+                    type='button'
+                    aria-label='Close modal'
+                    onClick={close}
+                    tabIndex={-1}
+                />
                 <div className={styles.window}>
                     <div className={styles.bar}>
                         <div className={clsx(styles.title, 't-label')}>
@@ -42,8 +45,8 @@ const Modal = ({ children, close, title }) => {
                     </div>
                     <div className={styles.content}>{children}</div>
                 </div>
-            </FocusTrap>
-        </div>
+            </div>
+        </FocusTrap>
     )
 }
 

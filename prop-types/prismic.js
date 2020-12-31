@@ -6,8 +6,8 @@ export const prismicQueryPropType = PropTypes.shape({
 
 export const prismicImagePropType = PropTypes.shape({
     dimensions: PropTypes.object,
-    alt: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
+    alt: PropTypes.string,
+    url: PropTypes.string,
 })
 
 export const prismicLinkPropType = PropTypes.shape({
