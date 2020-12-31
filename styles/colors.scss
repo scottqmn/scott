@@ -1,26 +1,22 @@
 :root {
     --primary: #000000;
-    --secondary: #000000;
-
-    --titleColor: #37474f;
-    --textColor: #222222;
-    --buttonColor: #eb427d;
-
-    --black: #000000;
-    --black65: rgba(0, 0, 0, 0.65);
-    --white: #ffffff;
-    --grey: #dee4e7;
-    --orange: #ff8a00;
+    --primary65: rgba(0, 0, 0, 0.65);
+    --secondary: #ffffff;
+    --detail: #ff8a00;
 }
 
-.c-black {
-    color: var(--black);
+.c-primary {
+    color: var(--primary);
 }
 
-.c-black65 {
-    color: var(--black65);
+.c-primary65 {
+    color: var(--primary65);
 }
 
-.c-white {
-    color: var(--white);
+.c-secondary {
+    color: var(--secondary);
+}
+
+.c-detail {
+    color: var(--detail);
 }

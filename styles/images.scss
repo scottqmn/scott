@@ -1,30 +1,35 @@
 %of {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 img {
-  display: block;
-  width: 100%;
-  height: auto;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  fill: currentColor;
+    display: block;
+    width: 100%;
+    height: auto;
+    fill: currentColor;
 }
 
 .of-contain {
-  @extend %of;
-  object-fit: contain;
+    @extend %of;
+    object-fit: contain;
 }
 
 .of-cover {
-  @extend %of;
-  object-fit: cover;
+    @extend %of;
+    object-fit: cover;
+}
+
+.of-scale-down {
+    @extend %of;
+    object-fit: scale-down;
 }

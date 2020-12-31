@@ -6,6 +6,9 @@
         "codeFrame": true
     },
     "plugins": ["react", "react-hooks", "jest"],
+    "env": {
+        "browser": true
+    },
     "extends": [
         "eslint:recommended",
         "airbnb",

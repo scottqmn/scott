@@ -1,8 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
-import { Button, Select, Checkbox } from './Inputs'
+import { Button, Select } from './Inputs'
 import ProductItem from './ProductItem'
+import ProductFilters from './ProductFilters'
+import projectPropTypes from '../prop-types/project'
+import tagPropTypes from '../prop-types/tag'
+
 import styles from '../styles/components/ProductGrid.module.scss'
 
 const SELECT_ID = 'sort-by-select'
@@ -34,17 +38,28 @@ const SORT_OPTIONS = {
     },
 }
 
-const ProductGrid = ({ projects, showMore }) => {
-    const [filter, setFilter] = useState(null)
-    const [sort, setSort] = useState('date-latest')
+const ProductGrid = ({ projects, tags }) => {
+    const initialFilters = tags.reduce(
+        (acc, { data, uid }) => ({
+            ...acc,
+            [uid]: {
+                label: data.name,
+                status: false,
+            },
+        }),
+        {}
+    )
+
+    const [filters, setFilters] = useState(initialFilters)
+    const [showFilters, setShowFilters] = useState(false)
+    const [sort, setSort] = useState(Object.keys(SORT_OPTIONS)[0])
 
     return (
         <div className='outer'>
             <div className={clsx(styles.inner, 'inner')}>
-                <Checkbox id='whatever'>Checkbox</Checkbox>
                 <div className={styles.options}>
-                    <Button as='button' className={''}>
-                        Filter
+                    <Button as='button' onClick={() => setShowFilters(true)}>
+                        Show Filters
                     </Button>
                     <div className={styles.selectWrap}>
                         <label htmlFor={SELECT_ID}>Sort by:</label>
@@ -65,37 +80,28 @@ const ProductGrid = ({ projects, showMore }) => {
                         </Select>
                     </div>
                 </div>
+                {showFilters && (
+                    <ProductFilters
+                        filters={filters}
+                        setFilters={setFilters}
+                        close={() => setShowFilters(false)}
+                    />
+                )}
                 <div className={styles.grid}>
                     {[...projects]
-                        .sort(SORT_OPTIONS[sort]?.sort)
-                        .map(({ title, subtitle, imgUrl, price, date }, i) => {
-                            return (
-                                <ProductItem // eslint-disable-next-line react/no-array-index-key
-                                    key={i}
-                                    title={title}
-                                    subtitle={subtitle}
-                                    imgUrl={imgUrl}
-                                    price={price}
-                                    date={date}
-                                />
-                            )
-                        })}
+                        // .sort(SORT_OPTIONS[sort]?.sort)
+                        .map(({ uid, data }) => (
+                            <ProductItem key={uid} data={data} />
+                        ))}
                 </div>
-                <Button
-                    as='button'
-                    className={styles.showMore}
-                    onClick={showMore}
-                >
-                    Show More
-                </Button>
             </div>
         </div>
     )
 }
 
 ProductGrid.propTypes = {
-    projects: PropTypes.arrayOf(PropTypes.object),
-    showMore: PropTypes.func.isRequired,
+    projects: PropTypes.arrayOf(PropTypes.shape(projectPropTypes)),
+    tags: PropTypes.arrayOf(PropTypes.shape(tagPropTypes)),
 }
 
 export default ProductGrid

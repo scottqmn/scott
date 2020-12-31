@@ -1,52 +1,41 @@
-import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { Client, Predicates } from '../../utils/prismic'
 import Layout from '../../components/Layout'
 import ProductGrid from '../../components/ProductGrid'
 
-const getImgUrl = (index) =>
-    `https://picsum.photos/id/${Math.floor(
-        Math.random() * (100 + index)
-    )}/300/300`
-
-const getPrice = (index) => Math.floor(Math.random() * (100 + index)) + 1
-const getDate = () => {
-    const date = new Date()
-    date.setMonth(Math.floor(Math.random() * 12))
-    date.setYear(date.getFullYear() - Math.floor(Math.random() * 3))
-    return date
-}
-
-const DUMMY_PROJECT = {
-    title: 'Lorem Ipsum',
-    subtitle: 'Dolor sit amet, consectetur adipiscing elit',
-}
-
-const getNewProject = (index) => ({
-    ...DUMMY_PROJECT,
-    imgUrl: getImgUrl(index),
-    price: getPrice(index),
-    date: getDate(),
-})
-
-const Projects = () => {
-    const [projects, setProjects] = useState([])
-
-    useEffect(() => {
-        for (let i = 0; i < 6; i += 1) {
-            setProjects((curr) => [...curr, getNewProject(i)])
-        }
-    }, [])
-
-    const showMore = () => {
-        for (let i = 0; i < 3; i += 1) {
-            setProjects((curr) => [...curr, getNewProject(i)])
-        }
-    }
-
+const Projects = ({ projects, tags }) => {
     return (
         <Layout>
-            <ProductGrid projects={projects} showMore={showMore} />
+            <ProductGrid projects={projects} tags={tags} />
         </Layout>
     )
+}
+
+Projects.propTypes = {
+    projects: PropTypes.array,
+    tags: PropTypes.array,
+}
+
+export const getServerSideProps = async (context) => {
+    const { req } = context
+
+    const projectRes = await Client(req).query(
+        [Predicates.at('document.type', 'project')],
+        {
+            fetchLinks: [
+                'tag.name',
+                'tag.description',
+                'tag.category',
+                'tag.info',
+            ],
+        }
+    )
+
+    const tagRes = await Client(req).query([
+        Predicates.at('document.type', 'tag'),
+    ])
+
+    return { props: { projects: projectRes.results, tags: tagRes.results } }
 }
 
 export default Projects
