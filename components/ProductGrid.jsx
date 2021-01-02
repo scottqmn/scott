@@ -43,20 +43,19 @@ const SORT_OPTIONS = {
 }
 
 const ProductGrid = ({ projects, tags }) => {
-    const initialFilters = tags.reduce(
-        (acc, { data, uid }) => ({
-            ...acc,
-            [uid]: {
-                label: data.name,
-                status: false,
-            },
-        }),
-        {}
-    )
-
-    const [filters, setFilters] = useState(initialFilters)
+    const [filters, setFilters] = useState([])
     const [showFilters, setShowFilters] = useState(false)
     const [sort, setSort] = useState(Object.keys(SORT_OPTIONS)[0])
+
+    const filteredAndSortedProjects = [...projects]
+        .sort(SORT_OPTIONS[sort]?.sort)
+        .filter(({ data }) => {
+            const projectTags = data.tags.map(({ tag }) => tag.uid)
+            return filters.reduce(
+                (acc, curr) => acc && projectTags.includes(curr),
+                true
+            )
+        })
 
     return (
         <div className='outer'>
@@ -84,17 +83,17 @@ const ProductGrid = ({ projects, tags }) => {
                 </div>
                 {showFilters && (
                     <ProductFilters
+                        tags={tags}
+                        projects={filteredAndSortedProjects}
                         filters={filters}
                         setFilters={setFilters}
                         close={() => setShowFilters(false)}
                     />
                 )}
                 <div className={styles.grid}>
-                    {[...projects]
-                        .sort(SORT_OPTIONS[sort]?.sort)
-                        .map(({ uid, data }) => (
-                            <ProductItem key={uid} uid={uid} data={data} />
-                        ))}
+                    {filteredAndSortedProjects.map(({ uid, data }) => (
+                        <ProductItem key={uid} uid={uid} data={data} />
+                    ))}
                 </div>
             </div>
         </div>

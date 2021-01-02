@@ -1,0 +1,9 @@
+.group {
+    &:not(:first-child) {
+        margin-top: 16px;
+    }
+}
+
+.checkbox {
+    margin-top: 8px;
+}

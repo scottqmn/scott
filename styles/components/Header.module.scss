@@ -8,5 +8,6 @@
     height: 69px;
     text-align: center;
     z-index: 10;
-    background-color: var(--grey);
+    background-color: var(--secondary);
+    border-bottom: 2px solid var(--primary);
 }
