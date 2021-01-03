@@ -1,16 +1,25 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
+import { Client } from '../../utils/prismic'
 import Layout from '../../components/Layout'
-import ProductGrid from '../../components/ProductGrid'
-// import styles from '../../styles/pages/project-detail.module.scss'
+import ProductDetail from '../../components/ProductDetail'
+import projectPropTypes from '../../prop-types/project'
 
-const Projects = () => {
+const ProjectDetail = ({ project }) => {
     return (
         <Layout>
-            <ProductGrid />
+            <ProductDetail project={project} />
         </Layout>
     )
 }
 
-// Projects.propTypes = {}
+export const getServerSideProps = async (context) => {
+    const { req, params } = context
+    const projectRes = await Client(req).getByUID('project', params.uid)
+    return { props: { project: projectRes } }
+}
 
-export default Projects
+ProjectDetail.propTypes = {
+    project: PropTypes.shape(projectPropTypes),
+}
+
+export default ProjectDetail

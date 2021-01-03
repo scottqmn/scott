@@ -1,5 +1,5 @@
 import Image from './Image'
-import Link from './Link'
+import PrismicLink from './PrismicLink'
 import RichText from './RichText'
 
-export { Image, Link, RichText }
+export { Image, PrismicLink, RichText }

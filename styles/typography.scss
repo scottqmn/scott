@@ -134,7 +134,8 @@ textarea {
 
 button,
 select,
-label {
+label,
+.button {
     @extend %label;
     font-weight: 500;
 }

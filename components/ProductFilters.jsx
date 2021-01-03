@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { Checkbox } from './Inputs'
+import { Button, Checkbox } from './Inputs'
 import Modal from './Modal'
 import styles from '../styles/components/ProductFilters.module.scss'
 
@@ -28,6 +28,7 @@ const ProductFilters = ({ tags, projects, filters, setFilters, close }) => {
 
     return (
         <Modal title='Filters' close={() => close(false)}>
+            <Button onClick={() => setFilters([])}>Clear All</Button>
             {Object.entries(groupedTags).map(([groupName, groupTags]) => {
                 return (
                     <div key={`filter-${groupName}`} className={styles.group}>
