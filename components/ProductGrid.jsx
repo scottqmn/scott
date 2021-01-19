@@ -15,14 +15,14 @@ const SORT_OPTIONS = {
     'date-latest': {
         label: 'Date (Latest)',
         sort: (a, b) =>
-            new Date(b?.data?.end_date || b?.data?.start_date) -
-            new Date(a?.data?.end_date || a?.data?.start_date),
+            new Date(a?.data?.end_date || a?.data?.start_date) -
+            new Date(b?.data?.end_date || b?.data?.start_date),
     },
     'date-oldest': {
         label: 'Date (Oldest)',
         sort: (a, b) =>
-            new Date(a?.data?.end_date || a?.data?.start_date) -
-            new Date(b?.data?.end_date || b?.data?.start_date),
+            new Date(b?.data?.end_date || b?.data?.start_date) -
+            new Date(a?.data?.end_date || a?.data?.start_date),
     },
     'alpha-inc': {
         label: 'Name (A-Z)',
