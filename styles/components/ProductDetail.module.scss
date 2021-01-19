@@ -1,17 +1,43 @@
 @import '../breakpoints';
 
+.breadcrumbs {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.divider {
+    display: inline-block;
+    margin: 0 0.5em;
+}
+
 .layout {
     display: grid;
-    grid-template-columns: '1fr';
+    grid-template-areas:
+        'name'
+        'image'
+        'info';
     grid-gap: 16px;
 
     @media (min-width: $md) {
         grid-template-columns: 2fr 3fr;
+        grid-template-areas:
+            'image name'
+            'image info';
     }
 }
 
+.name {
+    grid-area: name;
+}
+
 .image {
+    grid-area: image;
 }
 
 .info {
+    grid-area: info;
+}
+
+.button {
+    width: 100%;
 }

@@ -89,6 +89,8 @@
 
 // Rich text
 .rte {
+    line-height: initial;
+
     h1 {
         @extend %h1;
         margin: 0.67em 0;
@@ -121,6 +123,11 @@
         @extend %body;
         margin: 0.83em 0;
     }
+    a {
+        color: var(--detail);
+        text-decoration: underline;
+    }
+
     & > *:first-child {
         margin-top: 0;
     }
