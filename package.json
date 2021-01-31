@@ -22,8 +22,7 @@
     "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "sass": "^1.29.0",
-    "typy": "^3.3.0"
+    "sass": "^1.29.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^7.28.1",

@@ -2,12 +2,10 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import { Button, Select } from './Inputs'
-import ProductItem from './ProductItem'
 import ProductFilters from './ProductFilters'
 import projectPropTypes from '../prop-types/project'
 import tagPropTypes from '../prop-types/tag'
-
-import styles from '../styles/components/ProductGrid.module.scss'
+import styles from '../styles/components/ProjectGrid.module.scss'
 
 const SELECT_ID = 'sort-by-select'
 
@@ -32,17 +30,9 @@ const SORT_OPTIONS = {
         label: 'Name (Z-A)',
         sort: (a, b) => b?.data?.name.localeCompare(a?.data?.name),
     },
-    'price-inc': {
-        label: 'Price ($-$$)',
-        sort: (a, b) => a?.data?.price - b?.data?.price,
-    },
-    'price-dec': {
-        label: 'Price ($$-$)',
-        sort: (a, b) => b?.data?.price - a?.data?.price,
-    },
 }
 
-const ProductGrid = ({ projects, tags }) => {
+const ProjectGrid = ({ projects, tags }) => {
     const [filters, setFilters] = useState([])
     const [showFilters, setShowFilters] = useState(false)
     const [sort, setSort] = useState(Object.keys(SORT_OPTIONS)[0])
@@ -92,7 +82,8 @@ const ProductGrid = ({ projects, tags }) => {
                 )}
                 <div className={styles.grid}>
                     {filteredAndSortedProjects.map(({ uid, data }) => (
-                        <ProductItem key={uid} uid={uid} data={data} />
+                        // <ProductItem key={uid} uid={uid} data={data} />
+                        <div key={uid}>{data.name}</div>
                     ))}
                 </div>
             </div>
@@ -100,9 +91,9 @@ const ProductGrid = ({ projects, tags }) => {
     )
 }
 
-ProductGrid.propTypes = {
+ProjectGrid.propTypes = {
     projects: PropTypes.arrayOf(PropTypes.shape(projectPropTypes)),
     tags: PropTypes.arrayOf(PropTypes.shape(tagPropTypes)),
 }
 
-export default ProductGrid
+export default ProjectGrid

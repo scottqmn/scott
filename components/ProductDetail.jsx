@@ -47,7 +47,7 @@ const ProductDetail = ({ project }) => {
                 <div className={styles.layout}>
                     <h1 className={clsx(styles.name, 't-h3')}>{name}</h1>
                     <div className={styles.image}>
-                        <Image content={product_image} />
+                        <Image image={product_image} />
                     </div>
                     <div className={styles.info}>
                         <div className={styles.prices}>

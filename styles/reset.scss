@@ -19,7 +19,6 @@ abbr,
 acronym,
 address,
 big,
-button,
 cite,
 code,
 del,
@@ -105,7 +104,7 @@ body {
 }
 ol,
 ul {
-    padding-inline-start: 40px;
+    list-style: none;
 }
 blockquote,
 q {
