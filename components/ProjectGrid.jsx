@@ -50,6 +50,7 @@ const ProjectGrid = ({ projects, tags }) => {
     return (
         <div className='outer'>
             <div className={clsx(styles.inner, 'inner')}>
+                <h2 className='t-h2'>Projects</h2>
                 <div className={styles.options}>
                     <Button as='button' onClick={() => setShowFilters(true)}>
                         Show Filters

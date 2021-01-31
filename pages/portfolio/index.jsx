@@ -6,7 +6,6 @@ import ProjectGrid from '../../components/ProjectGrid'
 
 const Portfolio = ({ prismicData }) => {
     const { work, projects, tags } = prismicData
-    console.log(work)
     return (
         <Layout>
             <WorkHistory items={work} />
