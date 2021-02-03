@@ -5,11 +5,11 @@ import ItemList from '../../components/ItemList'
 import ItemGrid from '../../components/ItemGrid'
 
 const Portfolio = ({ prismicData }) => {
-    const { work, projects, tags } = prismicData
+    const { work, projects } = prismicData
     return (
         <Layout>
-            <ItemList items={work} />
-            <ItemGrid projects={projects} tags={tags} />
+            <ItemList heading='Work' items={work} />
+            <ItemGrid heading='Projects' items={projects} />
         </Layout>
     )
 }

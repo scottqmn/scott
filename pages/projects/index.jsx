@@ -3,17 +3,16 @@ import { Client, Predicates } from '../../utils/prismic'
 import Layout from '../../components/Layout'
 import ItemGrid from '../../components/ItemGrid'
 
-const Projects = ({ projects, tags }) => {
+const Projects = ({ projects }) => {
     return (
         <Layout>
-            <ItemGrid projects={projects} tags={tags} />
+            <ItemGrid heading='Projects' items={projects} />
         </Layout>
     )
 }
 
 Projects.propTypes = {
     projects: PropTypes.array,
-    tags: PropTypes.array,
 }
 
 export const getServerSideProps = async (context) => {

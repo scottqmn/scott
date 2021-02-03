@@ -1,23 +1,7 @@
 @import '../breakpoints';
 
-.inner {
-    max-width: 720px;
-    margin: 0 auto;
-}
-
-.options {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
-}
-
-.selectWrap {
-    display: flex;
-    align-items: center;
-
-    label {
-        margin-right: 8px;
-    }
+.heading {
+    margin-bottom: 60px;
 }
 
 .grid {
@@ -31,59 +15,5 @@
 
     @media (min-width: $lg) {
         grid-gap: 24px 16px;
-    }
-}
-
-.showMore {
-    margin-top: 24px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.project {
-    position: relative;
-}
-
-.thumbnail {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 100%;
-    background-color: rgb(255, 228, 233);
-}
-
-.title {
-    margin-top: 12px;
-    font-weight: 500;
-}
-
-.price,
-.label {
-    margin-top: 16px;
-}
-
-.price {
-}
-
-.priceSale {
-    display: inline-block;
-    margin-right: 1em;
-}
-
-.priceRegular {
-    text-decoration: line-through;
-}
-
-.date {
-    position: absolute;
-    top: 10px;
-    left: 8px;
-    padding: 12px 16px;
-    background-color: var(--secondary);
-    border-radius: 40px;
-
-    @media (min-width: $sm) {
-        top: 20px;
-        left: 15px;
     }
 }
