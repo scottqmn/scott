@@ -5,7 +5,7 @@ import { Button, Select } from './Inputs'
 import ProductFilters from './ProductFilters'
 import projectPropTypes from '../prop-types/project'
 import tagPropTypes from '../prop-types/tag'
-import styles from '../styles/components/ProjectGrid.module.scss'
+import styles from '../styles/components/ItemGrid.module.scss'
 
 const SELECT_ID = 'sort-by-select'
 
@@ -32,7 +32,7 @@ const SORT_OPTIONS = {
     },
 }
 
-const ProjectGrid = ({ projects, tags }) => {
+const ItemGrid = ({ projects, tags }) => {
     const [filters, setFilters] = useState([])
     const [showFilters, setShowFilters] = useState(false)
     const [sort, setSort] = useState(Object.keys(SORT_OPTIONS)[0])
@@ -92,9 +92,9 @@ const ProjectGrid = ({ projects, tags }) => {
     )
 }
 
-ProjectGrid.propTypes = {
+ItemGrid.propTypes = {
     projects: PropTypes.arrayOf(PropTypes.shape(projectPropTypes)),
     tags: PropTypes.arrayOf(PropTypes.shape(tagPropTypes)),
 }
 
-export default ProjectGrid
+export default ItemGrid

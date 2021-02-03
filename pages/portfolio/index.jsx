@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
 import { Client, Predicates } from '../../utils/prismic'
 import Layout from '../../components/Layout'
-import WorkHistory from '../../components/WorkHistory'
-import ProjectGrid from '../../components/ProjectGrid'
+import ItemList from '../../components/ItemList'
+import ItemGrid from '../../components/ItemGrid'
 
 const Portfolio = ({ prismicData }) => {
     const { work, projects, tags } = prismicData
     return (
         <Layout>
-            <WorkHistory items={work} />
-            <ProjectGrid projects={projects} tags={tags} />
+            <ItemList items={work} />
+            <ItemGrid projects={projects} tags={tags} />
         </Layout>
     )
 }

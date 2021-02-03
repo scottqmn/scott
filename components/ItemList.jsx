@@ -7,7 +7,7 @@ import {
     prismicImagePropType,
     prismicLinkPropType,
 } from '../prop-types/prismic'
-import styles from '../styles/components/WorkHistory.module.scss'
+import styles from '../styles/components/ItemList.module.scss'
 
 const WorkItem = ({ role, company, link, logo, startDate, endDate }) => {
     const formattedDate = `${moment(startDate).format('MMM YYYY')} - ${
@@ -49,7 +49,7 @@ WorkItem.propTypes = {
     endDate: PropTypes.string,
 }
 
-const WorkHistory = ({ items }) => {
+const ItemList = ({ items }) => {
     return (
         <div className='outer'>
             <div className='inner'>
@@ -87,8 +87,8 @@ const WorkHistory = ({ items }) => {
     )
 }
 
-WorkHistory.propTypes = {
+ItemList.propTypes = {
     items: PropTypes.arrayOf(PropTypes.object),
 }
 
-export default WorkHistory
+export default ItemList

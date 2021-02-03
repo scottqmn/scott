@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import { Client, Predicates } from '../../utils/prismic'
 import Layout from '../../components/Layout'
-import ProjectGrid from '../../components/ProjectGrid'
+import ItemGrid from '../../components/ItemGrid'
 
 const Projects = ({ projects, tags }) => {
     return (
         <Layout>
-            <ProjectGrid projects={projects} tags={tags} />
+            <ItemGrid projects={projects} tags={tags} />
         </Layout>
     )
 }
