@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types'
-import { Client, Predicates } from '../../utils/prismic'
-import Layout from '../../components/Layout'
-import ItemList from '../../components/ItemList'
-import ItemGrid from '../../components/ItemGrid'
+import { Client, Predicates } from '../utils/prismic'
+
+import ItemList from '../components/ItemList'
+import ItemGrid from '../components/ItemGrid'
 
 const Portfolio = ({ prismicData }) => {
     const { work, projects } = prismicData
     return (
-        <Layout>
+        <>
             <ItemList heading='Work' items={work} />
             <ItemGrid heading='Projects' items={projects} />
-        </Layout>
+        </>
     )
 }
 
@@ -22,7 +22,7 @@ Portfolio.propTypes = {
     }),
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
     const { req } = context
 
     const workRes = await Client(req).query([

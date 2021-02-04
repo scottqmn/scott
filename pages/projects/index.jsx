@@ -1,21 +1,16 @@
 import PropTypes from 'prop-types'
 import { Client, Predicates } from '../../utils/prismic'
-import Layout from '../../components/Layout'
 import ItemGrid from '../../components/ItemGrid'
 
 const Projects = ({ projects }) => {
-    return (
-        <Layout>
-            <ItemGrid heading='Projects' items={projects} />
-        </Layout>
-    )
+    return <ItemGrid heading='Projects' items={projects} />
 }
 
 Projects.propTypes = {
     projects: PropTypes.array,
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
     const { req } = context
 
     const projectRes = await Client(req).query(

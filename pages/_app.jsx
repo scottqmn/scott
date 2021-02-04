@@ -3,6 +3,7 @@
 // import Router from 'next/router'
 import Head from 'next/head'
 import 'normalize.css'
+import Layout from '../components/Layout'
 import '../styles/main.scss'
 // import * as gtag from '../utils/gtag'
 import metadata from '../constants/metadata'
@@ -43,7 +44,9 @@ function App({ Component, pageProps }) {
                 <meta name='twitter:image' content={metadata.image} />
                 <meta name='twitter:card' content='summary' />
             </Head>
-            <Component {...pageProps} />
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
         </>
     )
 }

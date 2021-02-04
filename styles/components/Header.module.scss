@@ -2,12 +2,20 @@
     position: sticky;
     top: 0;
     left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 69px;
     text-align: center;
     z-index: 10;
     background-color: var(--secondary);
-    border-bottom: 2px solid var(--primary);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    height: 69px;
+}
+
+.link {
+    &:not(:first-child) {
+        margin-left: 20px;
+    }
 }

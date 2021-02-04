@@ -1,15 +1,10 @@
 import PropTypes from 'prop-types'
 import { Client } from '../../utils/prismic'
-import Layout from '../../components/Layout'
 import ProductDetail from '../../components/ProductDetail'
 import projectPropTypes from '../../prop-types/project'
 
 const ProjectDetail = ({ project }) => {
-    return (
-        <Layout>
-            <ProductDetail project={project} />
-        </Layout>
-    )
+    return <ProductDetail project={project} />
 }
 
 export const getServerSideProps = async (context) => {

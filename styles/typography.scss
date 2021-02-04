@@ -146,6 +146,11 @@
         @extend %body;
         margin: 1em 0;
     }
+    ul,
+    ol {
+        list-style: initial;
+        padding-inline-start: 40px;
+    }
     li {
         @extend %body;
         margin: 0.83em 0;
