@@ -8,16 +8,25 @@ import CodeSVG from '../public/code.svg'
 
 const BusinessCard = ({ name, title }) => {
     const cardRef = useRef(null)
+
     useEffect(() => {
-        if (cardRef.current) {
-            VanillaTilt.init(cardRef.current, {
+        const { current } = cardRef
+        if (current) {
+            VanillaTilt.init(current, {
                 max: 10,
-                speed: 1,
+                speed: 10,
                 reverse: true,
-                'mouse-event-element': `.${styles.outer}`,
+                reset: false,
+                transition: true,
+                'full-page-listening': true,
             })
         }
-    })
+
+        return () => {
+            current?.vanillaTilt.destroy()
+        }
+    }, [])
+
     return (
         <div className={clsx(styles.outer, 'outer')}>
             <div className={clsx(styles.inner, 'inner')}>

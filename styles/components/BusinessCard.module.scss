@@ -5,6 +5,10 @@
     height: 100%;
 }
 
+.outer {
+    max-height: 100vw;
+}
+
 .inner {
     display: flex;
     justify-content: center;
