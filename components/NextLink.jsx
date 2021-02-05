@@ -4,10 +4,8 @@ import Link from 'next/link'
 
 const NextLink = ({ children, as: Component = 'a', href, ...props }) => {
     return (
-        <Link href={href} passHref>
-            <Component as='a' {...props}>
-                {children}
-            </Component>
+        <Link href={href}>
+            <Component {...props}>{children}</Component>
         </Link>
     )
 }
