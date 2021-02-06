@@ -47,7 +47,7 @@ function App({ Component, pageProps, router }) {
                 <meta name='twitter:card' content='summary' />
             </Head>
             <Layout>
-                <AnimatePresence exitBeforeEnter initial={false}>
+                <AnimatePresence exitBeforeEnter>
                     <motion.div key={router.route} {...PRESETS.page}>
                         <Component {...pageProps} />
                     </motion.div>
