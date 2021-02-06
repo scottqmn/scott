@@ -1,6 +1,6 @@
 :root {
     --primary: #000000;
-    --primary65: rgba(41, 41, 41, 0.65);
+    --primary65: rgba(0, 0, 0, 0.65);
     --secondary: #ffffff;
 
     --background: #ffffff;
@@ -19,10 +19,6 @@
 
 .c-primary65 {
     color: var(--primary65);
-}
-
-.c-secondary {
-    color: var(--secondary);
 }
 
 .c-detail {

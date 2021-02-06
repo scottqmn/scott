@@ -1,7 +1,7 @@
-import BusinessCard from '../components/BusinessCard'
+import Card from '../components/Card'
 
 const Index = () => {
-    return <BusinessCard name='Scott Nguyen' title='Web Developer' />
+    return <Card name='Scott Nguyen' title='Web Developer' />
 }
 
 export default Index

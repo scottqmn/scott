@@ -2,15 +2,17 @@
 /* eslint-disable react/prop-types */
 // import Router from 'next/router'
 import Head from 'next/head'
+import { AnimatePresence, motion } from 'framer-motion'
 import 'normalize.css'
 import Layout from '../components/Layout'
 import '../styles/main.scss'
 // import * as gtag from '../utils/gtag'
+import { PRESETS } from '../constants/motion'
 import metadata from '../constants/metadata'
 
 // Router.events.on('routeChangeComplete', (url) => gtag.pageview(url))
 
-function App({ Component, pageProps }) {
+function App({ Component, pageProps, router }) {
     return (
         <>
             <Head>
@@ -45,7 +47,11 @@ function App({ Component, pageProps }) {
                 <meta name='twitter:card' content='summary' />
             </Head>
             <Layout>
-                <Component {...pageProps} />
+                <AnimatePresence exitBeforeEnter initial={false}>
+                    <motion.div key={router.route} {...PRESETS.page}>
+                        <Component {...pageProps} />
+                    </motion.div>
+                </AnimatePresence>
             </Layout>
         </>
     )

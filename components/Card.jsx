@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import * as VanillaTilt from 'vanilla-tilt'
 import RatioContainer from './RatioContainer'
-import styles from '../styles/components/BusinessCard.module.scss'
+import styles from '../styles/components/Card.module.scss'
 import CodeSVG from '../public/code.svg'
 
-const BusinessCard = ({ name, title }) => {
+const Card = ({ name, title }) => {
     const cardRef = useRef(null)
 
     useEffect(() => {
@@ -50,9 +50,9 @@ const BusinessCard = ({ name, title }) => {
     )
 }
 
-BusinessCard.propTypes = {
+Card.propTypes = {
     name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
 }
 
-export default BusinessCard
+export default Card
