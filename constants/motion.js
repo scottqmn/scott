@@ -25,6 +25,28 @@ export const PRESETS = {
             },
         },
     },
+    scaleFade: {
+        initial: {
+            scale: 0.95,
+            opacity: 0,
+            y: '-100%',
+        },
+        animate: {
+            scale: 1,
+            opacity: 1,
+            y: '0%',
+        },
+        exit: {
+            scale: 0.95,
+            opacity: 0,
+            y: '-100%',
+        },
+        transition: {
+            default: {
+                duration: 0.25,
+            },
+        },
+    },
 }
 
 export const GESTURES = {
