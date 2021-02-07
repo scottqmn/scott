@@ -114,6 +114,10 @@
     @extend %label;
 }
 
+.ta-center {
+    text-align: center;
+}
+
 // Rich text
 .rte {
     line-height: initial;

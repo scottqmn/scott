@@ -8,6 +8,7 @@ import {
     prismicLinkPropType,
 } from '../prop-types/prismic'
 import styles from '../styles/components/WorkItem.module.scss'
+import LaunchIcon from '@material-ui/icons/Launch'
 
 const WorkItem = ({ uid, data }) => {
     const {
@@ -25,19 +26,33 @@ const WorkItem = ({ uid, data }) => {
 
     return (
         <div key={uid} className={styles.item}>
-            <div className='t-h3'>{role}</div>
-            <div className={clsx(styles.company, 't-label')}>
-                <PrismicLink link={link}>{company}</PrismicLink>
+            <div className={styles.heading}>
+                <div className={clsx(styles.role, 't-h3', 'ta-center')}>
+                    {role}
+                </div>
+            </div>
+            <div className={styles.row}>
+                <PrismicLink
+                    link={link}
+                    className={clsx(styles.company, 't-label', 'ta-center')}
+                >
+                    <span>{company}</span>
+                    <LaunchIcon />
+                </PrismicLink>
+            </div>
+            <div className={styles.row}>
+                <div className={clsx(styles.dates, 't-label', 'ta-center')}>
+                    {formattedDate}
+                </div>
             </div>
 
-            <div className={clsx(styles.dates, 't-label')}>{formattedDate}</div>
-            <PrismicLink className={styles.button} link={link}>
+            <div className={styles.logo} link={link}>
                 {logo ? (
                     <Image image={logo} />
                 ) : (
                     <KeyboardArrowRightRoundedIcon fontSize='small' />
                 )}
-            </PrismicLink>
+            </div>
         </div>
     )
 }

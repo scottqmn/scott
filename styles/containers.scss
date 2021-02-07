@@ -8,4 +8,9 @@
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
+
+    &--sm {
+        @extend .inner;
+        max-width: 600px;
+    }
 }

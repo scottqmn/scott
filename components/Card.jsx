@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import * as VanillaTilt from 'vanilla-tilt'
 import RatioContainer from './RatioContainer'
 import styles from '../styles/components/Card.module.scss'
-import CodeSVG from '../public/code.svg'
+import CodeSVG from '../public/assets/code.svg'
 
 const Card = ({ name, title }) => {
     const cardRef = useRef(null)
