@@ -1,13 +1,6 @@
-import Layout from '../components/Layout'
-import Intro from '../components/Intro'
-import Counter from '../components/Counter'
+import Splash from '../components/Splash'
 
 const Index: React.FC = () => {
-  return (
-    <Layout>
-      <Intro showIcon />
-      <Counter initialCount={26} />
-    </Layout>
-  )
+  return <Splash />
 }
 export default Index
