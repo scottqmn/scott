@@ -3,8 +3,10 @@
     Helvetica, Arial, 'Lucida Grande', sans-serif;
   --primary: #000;
   --background: #fff;
-  /* --background: #000; */
-  @media (prefers-color-scheme: dark) {
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
     --background: #000;
   }
 }
