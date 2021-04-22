@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
+import { motion, AnimatePresence } from 'framer-motion'
 import styles from './styles.module.scss'
 
 const MESSAGES = [
@@ -52,18 +53,69 @@ Message.propTypes = {
 const Splash = () => {
   const [step, setStep] = useState(0)
 
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 2 } },
+  }
+
+  const sentItem = {
+    hidden: {
+      opacity: 0,
+      y: -10,
+      scale: 0.8,
+      originX: 1,
+      originY: 0,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      originX: 1,
+      originY: 0,
+    },
+  }
+
+  const receivedItem = {
+    hidden: {
+      opacity: 0,
+      y: -10,
+      scale: 0.8,
+      originX: 0,
+      originY: 0,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      originX: 0,
+      originY: 0,
+    },
+  }
+
   return (
     <div className={styles.outer}>
-      <div className={styles.inner}>
-        {MESSAGES[step].map(({ type, content }, index) => {
-          const prevType = MESSAGES[step][index - 1]?.type
-          return (
-            <Message key={content} type={type} prevType={prevType}>
-              {content}
-            </Message>
-          )
-        })}
-      </div>
+      <AnimatePresence>
+        <motion.div
+          className={styles.inner}
+          variants={container}
+          initial='hidden'
+          animate='show'
+        >
+          {MESSAGES[step].map(({ type, content }, index) => {
+            const prevType = MESSAGES[step][index - 1]?.type
+            return (
+              <motion.div
+                key={content}
+                variants={type === 'sent' ? sentItem : receivedItem}
+              >
+                <Message type={type} prevType={prevType}>
+                  {content}
+                </Message>
+              </motion.div>
+            )
+          })}
+        </motion.div>
+      </AnimatePresence>
     </div>
   )
 }
