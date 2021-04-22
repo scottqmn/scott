@@ -1,19 +1,20 @@
 $sm: 420px;
 $md: 768px;
 
-$sent: #0b93f6;
+$sent: #075b97;
 $received: #e5e5ea;
 $typing: #e5e5ea;
 
 .outer {
-  padding: 20px;
+  padding: 40px 20px;
 }
 
 .wrap {
   max-width: 350px;
-  margin: 2em auto;
   display: flex;
   flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
 
   @media (min-width: $sm) {
     max-width: 400px;
@@ -22,13 +23,20 @@ $typing: #e5e5ea;
   @media (min-width: $md) {
     max-width: 450px;
   }
+
+  &.sameType {
+    margin-top: 0.25em;
+  }
+
+  &.diffType {
+    margin-top: 1em;
+  }
 }
 
 .bubble {
   border-radius: 25px;
   font-size: 20px;
   line-height: 1.2;
-  margin-bottom: 0.6em;
   max-width: 300px;
   padding: 15px 25px;
   position: relative;

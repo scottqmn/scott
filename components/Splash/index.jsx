@@ -3,8 +3,23 @@ import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import styles from './styles.module.scss'
 
-const Message = ({ type, children }) => {
+const MESSAGES = [
+  [
+    { type: 'sent', content: <h1>Hey Scott</h1> },
+    { type: 'received', content: "Hey! I'm a little busy at the moment." },
+    { type: 'received', content: 'Talk soon?' },
+  ],
+  [],
+]
+
+const Message = ({ children, type, prevType }) => {
   const isTyping = useMemo(() => type === 'typing', [type])
+  const spacing = useMemo(() => {
+    if (prevType) {
+      return type === prevType ? styles.sameType : styles.diffType
+    }
+    return null
+  }, [type, prevType])
 
   const Tag = isTyping ? 'button' : 'div'
 
@@ -17,7 +32,7 @@ const Message = ({ type, children }) => {
   )
 
   return (
-    <div className={styles.wrap}>
+    <div className={clsx(styles.wrap, spacing)}>
       <Tag
         className={clsx(styles.bubble, styles[type])}
         role={isTyping ? 'button' : undefined}
@@ -30,34 +45,25 @@ const Message = ({ type, children }) => {
 
 Message.propTypes = {
   type: PropTypes.oneOf(['received', 'sent', 'typing']).isRequired,
+  prevType: PropTypes.oneOf(['received', 'sent', 'typing']),
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 }
 
 const Splash = () => {
   const [step, setStep] = useState(0)
 
-  const renderStep = () => {
-    switch (step) {
-      case 0:
-        break
-      case 1:
-      default:
-    }
-
-    return (
-      <div className={styles.step}>
-        <Message type='sent'>Hey Scott</Message>
-        <Message type='received'>
-          who is this who is this who is this who is this
-        </Message>
-        <Message type='typing' />
-      </div>
-    )
-  }
-
   return (
     <div className={styles.outer}>
-      <div className={styles.inner}>{renderStep()}</div>
+      <div className={styles.inner}>
+        {MESSAGES[step].map(({ type, content }, index) => {
+          const prevType = MESSAGES[step][index - 1]?.type
+          return (
+            <Message key={content} type={type} prevType={prevType}>
+              {content}
+            </Message>
+          )
+        })}
+      </div>
     </div>
   )
 }
