@@ -61,7 +61,7 @@ const Splash = () => {
   const sentItem = {
     hidden: {
       opacity: 0,
-      y: -10,
+      y: 25,
       scale: 0.8,
       originX: 1,
       originY: 0,
@@ -72,13 +72,14 @@ const Splash = () => {
       scale: 1,
       originX: 1,
       originY: 0,
+      transition: { ease: 'easeInOut' },
     },
   }
 
   const receivedItem = {
     hidden: {
       opacity: 0,
-      y: -10,
+      y: 25,
       scale: 0.8,
       originX: 0,
       originY: 0,
@@ -89,6 +90,7 @@ const Splash = () => {
       scale: 1,
       originX: 0,
       originY: 0,
+      transition: { ease: 'easeInOut' },
     },
   }
 
