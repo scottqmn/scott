@@ -6,10 +6,10 @@ import 'normalize.css'
 import '../styles/reset.css'
 import '../styles/globals.css'
 import '../styles/typography.scss'
-import * as gtag from '../utils/gtag'
+// import * as gtag from '../utils/gtag'
 import metadata from '../constants/metadata'
 
-Router.events.on('routeChangeComplete', (url) => gtag.pageview(url))
+// Router.events.on('routeChangeComplete', (url) => gtag.pageview(url))
 
 function App({ Component, pageProps }) {
   return (
