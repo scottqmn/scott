@@ -1,0 +1,30 @@
+$sm: 420px;
+$md: 768px;
+
+.container {
+  border: 1px red solid;
+  padding: 20px;
+}
+
+.outer {
+  padding-bottom: 133.33%;
+  margin: 0 auto;
+  position: relative;
+  width: 500px;
+}
+
+.absoluteFill {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.inner {
+  padding: 20px;
+}
+
+.video {
+  object-fit: cover;
+}
