@@ -1,13 +1,15 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import Tilt from 'react-parallax-tilt'
 import IconButton from '@mui/material/IconButton'
 import RefreshIcon from '@mui/icons-material/Refresh'
 import styles from './styles.module.scss'
+import Holiday from '../../pages/holiday'
 
 const MAX_ANGLE = 5
 
-const HolidayCard = () => {
+const HolidayCard = ({ heading, content }) => {
   const [flipped, setFlipped] = useState(false)
   const toggleFlipped = () => {
     setFlipped((curr) => !curr)
@@ -39,27 +41,15 @@ const HolidayCard = () => {
               muted
               playsInline
             />
-            <h1 className={styles.heading}>Happy Holidays!</h1>
+            <h1 className={styles.heading}>{heading}</h1>
           </div>
-          {/* Heading */}
           <div
             className={clsx(styles.cardInner, styles.opacityTransition)}
             style={{ opacity: flipped ? 1 : 0 }}
             aria-hidden={!flipped}
           >
-            <div className={styles.cardContent}>
-              <p>
-                I made this website so I wouldn't have to buy multiple cards.
-              </p>
-
-              <p style={{ textAlign: 'right' }}>
-                Sincerely,
-                <br />
-                <span>Scott</span>
-              </p>
-            </div>
+            <div className={styles.cardContent}>{content}</div>
           </div>
-          {/* Content */}
         </Tilt>
 
         <IconButton
@@ -74,6 +64,11 @@ const HolidayCard = () => {
       </div>
     </div>
   )
+}
+
+HolidayCard.propTypes = {
+  heading: PropTypes.string,
+  content: PropTypes.node,
 }
 
 export default HolidayCard

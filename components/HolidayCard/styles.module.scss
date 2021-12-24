@@ -1,16 +1,19 @@
-// Breakpoints
+/* Breakpoints */
 $sm: 420px;
 $md: 768px;
 $lg: 960px;
-// Spacing
+
+/* Spacing */
 $_gap-xs: 75px 30px;
 $_gap-sm: 100px 40px;
 $_gap-md: 140px 90px;
 $_gap-lg: 140px 90px;
-// Max size
+
+/* Max size */
 $_card-max-width: 690px;
 $_card-max-height: 920px;
-// Colors
+
+/* Colors */
 $_bg: rgb(25, 34, 45);
 $_card-bg: rgb(211, 206, 196);
 $_card-color: #000;
@@ -70,10 +73,18 @@ $_card-color: #000;
   width: 100%;
   max-width: $_card-max-width;
   height: 100%;
-  max-height: $_card-max-height;
+  max-height: 500px;
   position: relative;
   border-radius: 16px;
   box-shadow: 8px 8px 16px 8px rgb(0 0 0 / 33%);
+
+  @media (min-width: $sm) { 
+    max-height: $_card-max-height;
+  }
+
+  @media (min-width: $md) {
+    max-height: $_card-max-height;
+  }
 
   > * {
     border-radius: inherit;
