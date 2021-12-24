@@ -1,16 +1,154 @@
+// Breakpoints
 $sm: 420px;
 $md: 768px;
+$lg: 960px;
+// Spacing
+$_gap-xs: 75px 30px;
+$_gap-sm: 100px 40px;
+$_gap-md: 140px 90px;
+$_gap-lg: 140px 90px;
+// Max size
+$_card-max-width: 690px;
+$_card-max-height: 920px;
+// Colors
+$_bg: rgb(25, 34, 45);
+$_card-bg: rgb(211, 206, 196);
+$_card-color: #000;
 
-.container {
-  border: 1px red solid;
+@mixin gap-padding() {
+  padding: $_gap-xs;
+
+  @media (min-width: $sm) {
+    padding: $_gap-sm;
+  }
+
+  @media (min-width: $md) {
+    padding: $_gap-md;
+  }
+
+  @media (min-width: $lg) {
+    padding: $_gap-lg;
+  }
+}
+
+@mixin gutter() {
   padding: 20px;
+
+  @media (min-width: $sm) {
+    padding: 30px 40px;
+  }
+
+  @media (min-width: $md) {
+    padding: 40px 60px;
+  }
+
+  @media (min-width: $md) {
+    padding: 60px 80px;
+  }
 }
 
 .outer {
-  padding-bottom: 133.33%;
-  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
   position: relative;
-  width: 500px;
+  overflow: hidden;
+  background-color: $_bg;
+}
+
+.inner {
+  @include gap-padding;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.cardOuter {
+  width: 100%;
+  max-width: $_card-max-width;
+  height: 100%;
+  max-height: $_card-max-height;
+  position: relative;
+  border-radius: 16px;
+  box-shadow: 8px 8px 16px 8px rgb(0 0 0 / 33%);
+
+  > * {
+    border-radius: inherit;
+  }
+}
+
+.cardInner {
+  @include gutter;
+
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $_card-bg;
+}
+
+.video {
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.heading {
+  position: relative;
+  z-index: 1;
+  font-family: var(--holiday-display);
+  font-size: 60px;
+  text-align: center;
+
+  @media (min-width: $sm) {
+    font-size: 80px;
+  }
+}
+
+.cardContent {
+  width: 100%;
+  // height: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  overflow: auto;
+  color: $_card-color;
+
+  p {
+    font-family: var(--holiday-serif);
+    font-size: 20px;
+    line-height: 1.6em;
+    margin-block: 1.6em;
+
+    &:first-child {
+      margin-block-start: 0;
+    }
+
+    @media (min-width: $md) {
+      font-size: 36px;
+    }
+  }
+}
+
+.button {
+  color: $_card-bg;
+  margin-top: 20px;
+
+  svg {
+    font-size: 36px;
+
+    @media (min-width: $sm) {
+      font-size: 48px;
+    }
+
+    @media (min-width: $md) {
+      font-size: 64px;
+    }
+  }
 }
 
 .absoluteFill {
@@ -19,12 +157,9 @@ $md: 768px;
   position: absolute;
   top: 0;
   width: 100%;
+  border-radius: inherit;
 }
 
-.inner {
-  padding: 20px;
-}
-
-.video {
-  object-fit: cover;
+.opacityTransition {
+  transition: opacity 0.4s ease-in-out;
 }
