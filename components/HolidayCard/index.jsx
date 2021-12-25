@@ -5,7 +5,6 @@ import Tilt from 'react-parallax-tilt'
 import IconButton from '@mui/material/IconButton'
 import RefreshIcon from '@mui/icons-material/Refresh'
 import styles from './styles.module.scss'
-import Holiday from '../../pages/holiday'
 
 const MAX_ANGLE = 5
 
