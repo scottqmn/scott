@@ -3,12 +3,21 @@ import HolidayCard from '../components/HolidayCard'
 
 const cardContent = (
   <>
+    <p>Dear family member,</p>
     <p>I made this website so I wouldn't have to buy multiple cards.</p>
-
+    <p>
+      Wish I could be there this year and I hope that 2022 brings us more
+      opportunities to spend quality family time.
+    </p>
+    <p>
+      I hope you find this present to make finding your phone, keys, and way
+      through life just a bit easier. Unless I didn't buy enough and ran out...
+      in that case please enjoy the cash.
+    </p>
     <p style={{ textAlign: 'right' }}>
-      Sincerely,
+      Merry Christmas,
       <br />
-      <span>Scott</span>
+      Scott
     </p>
   </>
 )

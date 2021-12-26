@@ -15,7 +15,10 @@ const HolidayCard = ({ heading, content }) => {
   }
 
   return (
-    <div className={styles.outer}>
+    <div
+      className={styles.outer}
+      style={{ backgroundImage: "url('/assets/sweater.jpg" }}
+    >
       <div className={styles.inner}>
         <Tilt
           className={styles.cardOuter}
@@ -40,7 +43,17 @@ const HolidayCard = ({ heading, content }) => {
               muted
               playsInline
             />
-            <h1 className={styles.heading}>{heading}</h1>
+            <div className={styles.cardContent}>
+              <h1 className={styles.heading}>
+                Merry!!!
+                <br />
+                <br />
+                <br />
+                <br />
+                Christmas!!
+                <br />
+              </h1>
+            </div>
           </div>
           <div
             className={clsx(styles.cardInner, styles.opacityTransition)}

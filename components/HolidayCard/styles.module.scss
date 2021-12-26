@@ -14,8 +14,8 @@ $_card-max-width: 690px;
 $_card-max-height: 920px;
 
 /* Colors */
-$_bg: rgb(25, 34, 45);
-$_card-bg: rgb(211, 206, 196);
+$_bg: rgb(25 34 45);
+$_card-bg: rgb(211 206 196);
 $_card-color: #000;
 
 @mixin gap-padding() {
@@ -42,7 +42,7 @@ $_card-color: #000;
   }
 
   @media (min-width: $md) {
-    padding: 40px 60px;
+    padding: 80px 60px;
   }
 
   @media (min-width: $md) {
@@ -56,6 +56,7 @@ $_card-color: #000;
   position: relative;
   overflow: hidden;
   background-color: $_bg;
+  background-size: cover;
 }
 
 .inner {
@@ -78,7 +79,7 @@ $_card-color: #000;
   border-radius: 16px;
   box-shadow: 8px 8px 16px 8px rgb(0 0 0 / 33%);
 
-  @media (min-width: $sm) { 
+  @media (min-width: $sm) {
     max-height: $_card-max-height;
   }
 
@@ -92,8 +93,6 @@ $_card-color: #000;
 }
 
 .cardInner {
-  @include gutter;
-
   width: 100%;
   height: 100%;
   position: relative;
@@ -101,6 +100,7 @@ $_card-color: #000;
   justify-content: center;
   align-items: center;
   background-color: $_card-bg;
+  overflow: auto;
 }
 
 .video {
@@ -109,6 +109,7 @@ $_card-color: #000;
 }
 
 .heading {
+  color: #fff;
   position: relative;
   z-index: 1;
   font-family: var(--holiday-display);
@@ -121,22 +122,25 @@ $_card-color: #000;
 }
 
 .cardContent {
-  width: 100%;
-  // height: 100%;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
+  @include gutter;
+
+  max-height: 100%;
   overflow: auto;
+  width: 100%;
   color: $_card-color;
 
   p {
     font-family: var(--holiday-serif);
-    font-size: 20px;
-    line-height: 1.6em;
-    margin-block: 1.6em;
+    font-size: 22px;
+    line-height: 1.4em;
+    margin-block: 1.4em;
 
     &:first-child {
       margin-block-start: 0;
+    }
+
+    &:last-child {
+      margin-block-end: 0;
     }
 
     @media (min-width: $md) {
